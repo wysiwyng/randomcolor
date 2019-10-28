@@ -1,33 +1,35 @@
 <html>
-    
-    <head>
-        <title>randomcolor-js</title>
-    </head>
-    
-    <body>
-        <p>
-			This page is running the compiled javascript from randomcolor.ts
-			<br />
-            <a href="#" onclick="location.reload();"> new color </a>
-        </p>
-        <script type="text/javascript">
-		"use strict";
-		class Color {
-			constructor(r, g, b) {
-				const toHex = (val) => Math.round(255 * Math.min(1, Math.max(0, val))).toString(16);
-				this.hexValue = toHex(r) + toHex(g) + toHex(b);
-			}
-		}
-		class ColorGenerator {
-			next() {
-				return new Color(Math.random(), Math.random(), Math.random());
-			}
-			apply(target, color) {
-				target.style.backgroundColor = '#' + color.hexValue;
-			}
-		}
-		const randomColor = new ColorGenerator();
-		randomColor.apply(document.body, randomColor.next());
-		</script>
-    </body>
+
+<head>
+    <title>randomcolor-js</title>
+</head>
+
+<body>
+    <p>
+        This page is running the compiled javascript from randomcolor.ts
+        <br />
+        <a href="#" onclick="location.reload();"> new color </a>
+    </p>
+    <script type="text/javascript">
+        "use strict";
+        class Color {
+            constructor(r, g, b) {
+                const toHex = (val) => Math.round(255 * Math.min(1, Math.max(0, val))).toString(16);
+                this.hexValue = toHex(r) + toHex(g) + toHex(b);
+            }
+        }
+        class ColorGenerator {
+            next() {
+                return new Color(Math.random(), Math.random(), Math.random());
+            }
+            apply(target, color) {
+                target.style.backgroundColor = '#' + color.hexValue;
+            }
+        }
+        const randomColor = new ColorGenerator();
+        randomColor.apply(document.body, randomColor.next());
+    </script>
+</body>
+
 </html>
+© 2019 GitHub, Inc.
